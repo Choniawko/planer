@@ -8,6 +8,10 @@ var mongoose    = require('mongoose');
 var jwt    = require('jsonwebtoken'); 
 var config = require('./config/config'); 
 var User   = require('./models/user'); 
+
+
+var userRouter = require('./routes/user/user');
+var authRouter = require('./routes/auth/auth');
   
 // =======================
 // konfiguracja  =========
@@ -41,7 +45,14 @@ app.get('/', function(req, res) {
 });
 
 // API ROUTES -------------------
+ var router = express.Router();
 
+router.get('/users', userRouter.list);
+router.post('/authenticate', authRouter.authenticate);
+
+
+
+app.use('/api', router);
 // =======================
 // start the server ======
 // =======================
