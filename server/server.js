@@ -25,7 +25,7 @@ mongoose.connect(config.database, function(err, db) {
         console.log("Połaczono z bazą");
     }
 });
-app.set('secret', config.secret);
+app.set('superSecret', config.secret);
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -47,8 +47,32 @@ app.get('/', function(req, res) {
 // API ROUTES -------------------
  var router = express.Router();
 
+ router.post('/authenticate', authRouter.authenticate);
+
+ // metoda posrednicząca do weryfikcji tokena
+ router.use(function(req, res, next) {
+     console.log('req', req.headers['x-access-token']);
+     var token = req.body.token || req.query.token || req.headers['x-access-token'];
+
+     if (token) {
+         jwt.verify(token, app.get('superSecret'), function(err, decoded) {
+             if (err) {
+                 return res.json({ success: false, message: 'Nieprawidłowy token' })
+             } else {
+                 req.decoded = decoded;
+                 next();
+             }
+         });
+     } else {
+         return res.status(403).send({ 
+        success: false, 
+        message: 'Nie przesłano tokena.' 
+    });
+     }
+ })
+
 router.get('/users', userRouter.list);
-router.post('/authenticate', authRouter.authenticate);
+
 
 
 
