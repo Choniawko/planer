@@ -22,10 +22,13 @@ router.create = function (req, res) {
 
 }
 
-router.userGeytId = function(req, res) {
-    User.find({ "_id" : req.params.id }, function(req, user) {
+router.userGetId = function(req, res) {
+    console.log('req.params.id', req.params.id);
+    User.find( {$or: [{ "_id" : req.params.id }, { "name" : req.params.id }]},  function(req, user) {
         res.json(user);
     })
 } 
+
+
 
 module.exports = router

@@ -73,7 +73,7 @@ app.get('/', function(req, res) {
 
 router.get('/users', userRouter.list);
 router.post('/user', userRouter.create);
-router.get('/user/:id', userRouter.userGeytId);
+router.get('/user/:id', userRouter.userGetId);
 
 
 
