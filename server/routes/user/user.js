@@ -10,12 +10,10 @@ router.list = function(req, res) {
 
 router.create = function (req, res) {
     
-    console.log('req.body', req.body);
     var user = new User(req.body);
     user.save(function(err) {
         if (err) throw err;
 
-        console.log('Uzytkownik zapisany.', user);
         res.json({
             success: true,
             message: "Uzytkownik zapisany."
@@ -23,5 +21,11 @@ router.create = function (req, res) {
     });
 
 }
+
+router.userGeytId = function(req, res) {
+    User.find({ "_id" : req.params.id }, function(req, user) {
+        res.json(user);
+    })
+} 
 
 module.exports = router
