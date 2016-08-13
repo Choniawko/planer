@@ -17,7 +17,7 @@ var authRouter = require('./routes/auth/auth');
 // konfiguracja  =========
 // =======================
 
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 3000;
 mongoose.connect(config.database, function(err, db) {
     if (err) {
         console.log('err', err);

@@ -1,10 +1,7 @@
-// styles applied on :host are applied on the current component, "app" in this case
-:host {
-  display: block;
-}
+// header and navigation
 
 header {
-  background-color: #fff;
+  background-color: #F50057;;
   padding: 16px;
   position: fixed;
   top: 0;
@@ -13,15 +10,7 @@ header {
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
 }
 
-main {
-  padding: 1em;
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
-  margin-top: 50px;
-  display: block;
+a{
+  color: #fff;
 }
 
-footer {
-  text-align: center;
-  font-size: 0.8em;
-}

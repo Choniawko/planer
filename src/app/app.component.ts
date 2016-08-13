@@ -3,7 +3,8 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 
 import { ApiService } from './shared';
 
-import '../style/app.scss';
+
+import '../style/main.scss';
 
 /*
  * App Component
