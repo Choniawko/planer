@@ -8,17 +8,17 @@ npm install
 
 ## get users
 [get]
-http://localhost:8080/api/users
+http://localhost:3000/api/users
 
 ## get user by id 
 [get]
-http://localhost:8080/api/user/id
+http://localhost:3000/api/user/id
 
 ## add user 
 [post]
-http://localhost:8080/api/user
+http://localhost:3000/api/user
 [body] : {} 
 
 ## authenticate
 [post]
-http://localhost:8080/api/authenticate
+http://localhost:3000/api/authenticate
