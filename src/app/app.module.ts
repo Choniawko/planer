@@ -8,6 +8,9 @@ import { HomeComponent } from './home/home.component';
 import { ApiService } from './shared';
 import { routing } from './app.routing';
 
+import { UserList } from './users/components/user-list';
+import { UserEdit } from './users/components/user-edit';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -18,6 +21,8 @@ import { routing } from './app.routing';
   declarations: [
     AppComponent,
     HomeComponent,
+    UserList,
+    UserEdit
   ],
   providers: [
     ApiService
