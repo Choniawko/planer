@@ -27,6 +27,7 @@ import { UserEdit } from './users/components/user-edit';
     UserEdit
   ],
   providers: [
+    I18nService,
     ApiService
   ],
   bootstrap: [AppComponent]

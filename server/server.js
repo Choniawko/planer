@@ -48,6 +48,8 @@ app.get('/', function(req, res) {
 // API ROUTES -------------------
  var router = express.Router();
 
+
+
  router.post('/authenticate', authRouter.authenticate);
 
  // metoda posrednicząca do weryfikcji tokena
