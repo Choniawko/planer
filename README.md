@@ -3,7 +3,7 @@ npm install
 * cd server
 * node server.js
 
-* open in browser localhost:8080
+* open in browser localhost:8081
 
 
 ## get users
