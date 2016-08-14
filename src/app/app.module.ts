@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 
+import { I18nService, I18nPipe } from './common/services/I18nService';
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ApiService } from './shared';
