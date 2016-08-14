@@ -3,6 +3,7 @@ var app         = express();
 var bodyParser  = require('body-parser');
 var morgan      = require('morgan');
 var mongoose    = require('mongoose');
+var path        = require ('path');
 
 
 var jwt    = require('jsonwebtoken'); 
@@ -27,6 +28,13 @@ mongoose.connect(config.database, function(err, db) {
     }
 });
 app.set('superSecret', config.secret);
+
+app.use(express.static(path.join(__dirname, 'doc')));
+console.log("__dirname", __dirname);
+app.set('views', './doc');
+app.set('view engine', 'ejs');
+
+
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -54,6 +62,12 @@ app.get('/', function(req, res) {
   next();
 });
 
+
+ 
+app.use('/api/apidoc', express.static('apidoc'));
+
+
+ 
  router.post('/authenticate', authRouter.authenticate);
 
  // metoda posrednicząca do weryfikcji tokena
@@ -78,8 +92,40 @@ app.get('/', function(req, res) {
 //      }
 //  });
 
+/**
+ * @api {get} /api/users
+ * @apiName GetUsers
+ * @apiGroup User
+ * @apiPermission none
+ */
 router.get('/users', userRouter.list);
+
+/**
+ * @api {post} /api/user
+ * @apiName PostUser
+ * @apiGroup User
+ * @apiPermission none
+ */
 router.post('/user', userRouter.create);
+/**
+ * @api {post} /api/user/:id
+ * @apiName PostUser
+ * @apiGroup User
+ * @apiPermission none
+ * 
+ * @apiParam {Number} id The Users-ID.
+ * 
+ * @apiExample Example usage:
+ * curl -i http://localhost:3000/api/user/4
+ * 
+ * @apiSuccess {Number}   _id            The Users-ID.
+ * @apiSuccess {String}   name            The Users-username.
+ * @apiSuccess {String}   password            The Users-password.
+ * @apiSuccess {Boolean}   admin            The Users-permission admin.
+ * @apiSuccess {String}   email            The Users-email.
+ * @apiSuccess {String}   firstname            The Users-firstname.
+ * @apiSuccess {String}   lastname            The Users-lastname.
+ */
 router.get('/user/:id', userRouter.userGetId);
 
 

@@ -1,0 +1,1 @@
+define({  "name": "apidoc-planer",  "version": "0.3.0",  "description": "apiDoc planer project",  "title": "Paner api docmentation",  "url": "https://localhost://api/api-doc",  "sampleUrl": false,  "apidoc": "0.2.0",  "generator": {    "name": "apidoc",    "time": "2016-08-14T17:02:57.516Z",    "url": "http://apidocjs.com",    "version": "0.16.1"  }});
