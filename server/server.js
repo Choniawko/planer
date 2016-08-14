@@ -48,7 +48,11 @@ app.get('/', function(req, res) {
 // API ROUTES -------------------
  var router = express.Router();
 
-
+ app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
  router.post('/authenticate', authRouter.authenticate);
 
