@@ -2,7 +2,7 @@
   "name": "planer",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "/server/server.js",
   "scripts": {
     "clean": "rimraf node_modules doc dist && npm cache clean",
     "clean-install": "npm run clean && npm install",
