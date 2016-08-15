@@ -1,7 +1,10 @@
 node_modules
+cmder_mini
 # Logs
 logs
 *.log
+
+npm-debug*
 
 # Runtime data
 pids

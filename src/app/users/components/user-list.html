@@ -1,2 +1,7 @@
 User list test
-<h3>Test tłumaczenia w komponencie podrzednym {{ "DUPA" | i18n }}</h3>
+  
+<div class="list">
+    <div class="item" *ngFor="let user of meta.users">
+        {{ user | json }}
+    </div>
+</div>
