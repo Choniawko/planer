@@ -2,9 +2,12 @@
    <div class="form-container">
        <h3>{{"USER_LIST" | i18n }} </h3>
         <div class="list">
-            <div class="item" *ngFor="let user of meta.users">
-                {{user.name}} : {{ user.fistname }}  {{ user.lastname }}
-                <pre> {{user | json }} </pre>
+            <div class="item item-short" *ngFor="let user of meta.users">
+               
+                <div> <i class="material-icons">person</i>  {{ user.firstname }}   {{ user.lastname }} </div>
+                <div> <i class="material-icons">person_pin</i>  {{user.name}}  </div>
+                <div> <i class="material-icons">email</i> {{user.email}} </div>
+                
             </div>
         </div>
    </div>

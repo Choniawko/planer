@@ -14,7 +14,6 @@ body {
     position: absolute;
 }
 my-app{
-    position: absolute;
     width: 100%;
     height: 100%;
     overflow: auto;
@@ -37,6 +36,11 @@ h3{
     margin-bottom: 3rem;
 }
 
+canvas{
+    position: absolute;
+    top: 0;
+    z-index: -1;
+}
 /****************************** header and nav *************************/
 header {
   background-color: $main;
@@ -88,7 +92,7 @@ nav{
 .valid-tick{
     color:  $green;
     position: absolute;
-    bottom: 0;
+    bottom: 7px;
     right: 10px;
 }
 
@@ -96,6 +100,22 @@ nav{
     color: $red;
 }
 
+
+/******************************* list  **************************/
+.item{
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.item-short{
+    max-width: 350px;
+    margin: 0 auto;
+    padding: 6px 10px;
+}
+
+.material-icons{
+    vertical-align: bottom;
+}
 /******************************* footer **************************/
 footer {
     position: absolute;
