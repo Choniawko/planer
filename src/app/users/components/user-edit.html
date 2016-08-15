@@ -1,7 +1,7 @@
 <div class="container">     
     <div class="form-container">
         <div [class.finished]="finished">
-            <form (ngSubmit)="onSubmit()" #addUser = ngForm>
+            <form #addUser = ngForm>
                 <div class="form-group" [class.error]="(!name.valid && finished) || (!name.valid && name.dirty)">
                     <label for="name">{{ "NAME" | i18n }}</label>
                     <input type="text" class="form-control" id="name"
@@ -89,7 +89,7 @@
                         
                 </div>
                 
-                <button class="btn" type="submit" (click)="finished=true" [disabled]="passwordsNotEqual">
+                <button class="btn" type="button" (click)="finished=true; onSubmit()" [disabled]="passwordsNotEqual">
                     Zapisz</button>
             </form>
         </div>

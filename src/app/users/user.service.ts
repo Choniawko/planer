@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers } from '@angular/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 import { url } from '../common/functions/globalUrl';
@@ -32,10 +32,16 @@ export class UserService {
     }
 
     saveUser(user){
-         
+            console.log('user', user);
+            
             let body = JSON.stringify(user);
 
-            return this._http.post(url('user'), body)
+            let headers = new Headers({ 'Content-Type': 'application/json' });
+            let options = new RequestOptions({ headers: headers });
+
+            console.log('body', body)
+
+            return this._http.post(url('user'), body, options)
                 .map(res => res.json());
         
     }

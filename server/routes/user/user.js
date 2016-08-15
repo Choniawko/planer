@@ -1,6 +1,12 @@
-var app  = require('express');
-var router   = app.Router();
+var express     = require('express');
+var app         = express();
+
+var router   = express.Router();
 var User   = require('../../models/user'); 
+var bodyParser  = require('body-parser');
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 router.list = function(req, res) {
     User.find({}, function(err, users) {
@@ -11,6 +17,7 @@ router.list = function(req, res) {
 router.create = function (req, res) {
     
     var user = new User(req.body);
+    console.log('req.body', req.body, user);
     user.save(function(err) {
         if (err) throw err;
 
