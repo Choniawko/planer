@@ -36,6 +36,7 @@
     "@angular/platform-browser-dynamic": "2.0.0-rc.5",
     "@angular/router": "3.0.0-rc.1",
     "body-parser": "^1.15.2",
+    "ejs": "^2.5.1",
     "es6-shim": "^0.35.0",
     "express": "^4.14.0",
     "jsonwebtoken": "^7.1.7",
@@ -47,6 +48,7 @@
   },
   "devDependencies": {
     "angular2-template-loader": "^0.4.0",
+    "apidoc": "^0.16.1",
     "autoprefixer": "^6.3.2",
     "bootstrap": "^3.3.7",
     "codelyzer": "0.0.26",
