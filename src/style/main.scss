@@ -1,9 +1,10 @@
 @import "colors";
 @import "mixins";
 @import "buttons";
+@import "fonts";
 
 
-/******** config ********/
+/************************** config ********************************/
 html{
     height: 100%;
 }
@@ -18,7 +19,7 @@ my-app{
     height: 100%;
 }
 
-/******* general ********/
+/************************* general **************************/
 a {
     color: #ccc;
 }
@@ -33,7 +34,44 @@ main {
 }
 
 
-/******* footer ********/
+/****************************** forms *************************/
+.form-container{
+    max-width: 600px;
+    margin: 0 auto;
+}
+.form-group{
+    position: relative;
+}
+
+/*** validation ***/
+
+.finished .ng-invalid, .ng-dirty.ng-invalid{
+    border: 1px solid $red;
+}
+
+.error{
+    color: $red;
+    input{
+        border: 1px solid $red;
+    }
+}
+
+.ng-valid[required] {
+//   border: 1px solid  $green; 
+}
+
+.valid-tick{
+    color:  $green;
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+}
+
+.error-message{
+    color: $red;
+}
+
+/******************************* footer **************************/
 footer {
     position: absolute;
     bottom: 0;
