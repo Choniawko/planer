@@ -17,6 +17,7 @@ my-app{
     position: absolute;
     width: 100%;
     height: 100%;
+    overflow: auto;
 }
 
 /************************* general **************************/
@@ -24,20 +25,44 @@ a {
     color: #ccc;
 }
 
-
 main {
     padding: 1em;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 80px;
     display: block;
 }
 
+h3{
+    margin-bottom: 3rem;
+}
+
+/****************************** header and nav *************************/
+header {
+  background-color: $main;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+a{
+  color: #fff;
+}
+
+nav{
+  display: inline-block;
+  margin: 0 20px;
+}
 
 /****************************** forms *************************/
 .form-container{
     max-width: 600px;
     margin: 0 auto;
+    background: #fff;
+    padding:40px;
 }
 .form-group{
     position: relative;
@@ -78,6 +103,7 @@ footer {
     width: 100%;
     text-align: center;
     font-size: 0.8em;
-    padding: 10px;
-    background:pink;
+    padding: 20px;
+    background: $main;
+    color: #fff;
 }
