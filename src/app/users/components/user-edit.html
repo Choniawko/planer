@@ -1,27 +1,31 @@
 <div class="container">     
     <div class="form-container">
-        <div [class.finished]="finished">
+        
+        <div [class.finished]="finished" >
+            <h3> {{ "NEW_USER" | i18n }} </h3>
             <form #addUser = ngForm>
                 <div class="form-group" [class.error]="(!name.valid && finished) || (!name.valid && name.dirty)">
-                    <label for="name">{{ "NAME" | i18n }}</label>
+                    <!--<label for="name">{{ "NAME" | i18n }}</label>-->
                     <input type="text" class="form-control" id="name"
                         required
                         [(ngModel)]="newUser.name" 
                         name="name"
-                        #name="ngModel" >
+                        #name="ngModel" 
+                        placeholder="{{ 'NAME' | i18n }}">
                     <div class="valid-tick" *ngIf="name.valid"><i class="material-icons">done</i></div>
                     <div [hidden]="name.valid || name.pristine" class="error-message">
                     {{ "REQUIRED" | i18n }}
                     </div>
                 </div>
                 <div class="form-group" [class.error]="(!email.valid && finished) || (!email.valid && email.dirty)">
-                    <label for="email">{{ "EMAIL" | i18n }}</label>
+                    <!--<label for="email">{{ "EMAIL" | i18n }}</label>-->
                     <input type="email" class="form-control"  id="email"
                         required
                         name="email"
                         #email = "ngModel"
                         [(ngModel)]="newUser.email"
                         pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                        placeholder="{{ 'EMAIL' | i18n }}"
                         
                     >
                     <div class="valid-tick" *ngIf="email.valid"><i class="material-icons">done</i></div>
@@ -34,12 +38,13 @@
                 </div>
 
                 <div class="form-group" [class.error]="(!password.valid && finished) || (!password.valid && password.dirty)">
-                    <label for="password">{{ "PASSWORD" | i18n }}</label>
+                    <!--<label for="password">{{ "PASSWORD" | i18n }}</label>-->
                     <input type="password" class="form-control"  id="password"
                         name="password"
                         required
                         [(ngModel)]="newUser.password" 
                         #password = "ngModel"
+                        placeholder="{{ 'PASSWORD' | i18n }}"
                     >
                     <div class="valid-tick" *ngIf="password.valid"><i class="material-icons">done</i></div>
                     <div [hidden]="password.valid || password.pristine" class="error-message">
@@ -49,11 +54,12 @@
 
 
                 <div class="form-group" [class.error]="passwordsNotEqual">
-                    <label for="password">{{ "REPEAT_PASSWORD" | i18n }}</label>
+                    <!--<label for="password">{{ "REPEAT_PASSWORD" | i18n }}</label>-->
                     <input type="password" class="form-control"  id="password2"
                         name="password2"
                         required
                         (blur)="arePasswordsEqual($event.target.value)"
+                        placeholder="{{ 'REPEAT_PASSWORD' | i18n }}"
                     >
                     <div class="valid-tick" *ngIf="passwordsEqual"><i class="material-icons">done</i></div>
                     <div class="error-message" *ngIf="passwordsNotEqual" >
@@ -62,12 +68,13 @@
                 </div>
             
                 <div class="form-group" [class.error]="(!firstname.valid && finished) || (!firstname.valid && firstname.dirty)">
-                    <label for="firstname">{{ "FIRSTNAME" | i18n }}</label>
+                    <!--<label for="firstname">{{ "FIRSTNAME" | i18n }}</label>-->
                     <input type="text" class="form-control" id="firstnamename"
                         name="firstname"
                         required
                         [(ngModel)]="newUser.firstname" 
                         #firstname = "ngModel"
+                        placeholder="{{ 'FIRSTNAME' | i18n }}"
                     >
                     <div class="valid-tick" *ngIf="firstname.valid"><i class="material-icons">done</i></div>    
                     <div [hidden]="firstname.valid || firstname.pristine" class="error-message">
@@ -76,12 +83,13 @@
                 </div>
 
                 <div class="form-group" [class.error]="(!lastname.valid && finished) || (!lastname.valid && lastname.dirty)">
-                    <label for="lastname">{{ "LASTNAME" | i18n }}</label>
+                    <!--<label for="lastname">{{ "LASTNAME" | i18n }}</label>-->
                     <input type="text" class="form-control" id="lastname"
                         name="lastname"
                         required
                         #lastname = "ngModel"
-                        [(ngModel)]="newUser.lastname" >
+                        [(ngModel)]="newUser.lastname" 
+                        placeholder="{{ 'LASTNAME' | i18n }}">
                     <div class="valid-tick" *ngIf="lastname.valid"><i class="material-icons">done</i></div>
                     <div [hidden]="lastname.valid || lastname.pristine" class="error-message">
                         {{ "REQUIRED" | i18n }}
@@ -89,7 +97,7 @@
                         
                 </div>
                 
-                <button class="btn" type="button" (click)="finished=true; onSubmit()" [disabled]="passwordsNotEqual">
+                <button class="btn btn-color" id="btn-main" type="button" (click)="finished=true; onSubmit()" [disabled]="passwordsNotEqual">
                     Zapisz</button>
             </form>
         </div>

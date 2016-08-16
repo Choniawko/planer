@@ -24,8 +24,8 @@ export class UserEdit implements OnInit {
     constructor(public userService: UserService) { }
 
     ngOnInit() {     
-        
     }
+
 
     arePasswordsEqual(pass2){
         if(pass2 == this.newUser.password){

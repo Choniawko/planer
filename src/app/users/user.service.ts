@@ -20,10 +20,9 @@ export class UserService {
                  let result:Array<any> = [];
                 if (users) {
                     console.log(users);
-                    users.items.forEach((user) => {
-                       result.push(
-                           user
-                       )
+                    users.forEach((user) => {
+                        console.log(user);
+                       result.push(user)
                     });
                 }
                 console.log(result);
