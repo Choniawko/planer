@@ -5,6 +5,8 @@ npm install
 
 * open in browser localhost:3000
 
+#api link:
+https://planer-node.herokuapp.com/api/apidoc/
 
 ## get users
 [get]

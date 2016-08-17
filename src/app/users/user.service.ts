@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
 
 import { url } from '../common/functions/globalUrl';
 
-import { User } from './user.model';
+
 
 @Injectable()
 export class UserService {
@@ -13,16 +12,15 @@ export class UserService {
     }
 
     getUsers(){
-        console.log("service");
          return this._http.get(url('users'))
              .map(res => res.json())
              .map((users) => {
-                 let result:Array<any> = [];
+                let result:Array<any> = [];
                 if (users) {
                     console.log(users);
                     users.forEach((user) => {
                         console.log(user);
-                       result.push(user)
+                       result.push(user);
                     });
                 }
                 console.log(result);
@@ -38,7 +36,7 @@ export class UserService {
             let headers = new Headers({ 'Content-Type': 'application/json' });
             let options = new RequestOptions({ headers: headers });
 
-            console.log('body', body)
+            console.log('body', body);
 
             return this._http.post(url('user'), body, options)
                 .map(res => res.json());
