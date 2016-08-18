@@ -59,7 +59,7 @@
                 </div>
 
 
-                <div class="form-group" [class.error]="passwordsNotEqual || (!password2.value && finished )">
+                <div class="form-group" [class.error]="(passwordsNotEqual && password.valid) || (finished && !password2.value)">
                     <!--<label for="password">{{ "REPEAT_PASSWORD" | i18n }}</label>-->
                     <div class="input-wrap">
                         <input type="password" class="form-input"  id="password2"
@@ -71,7 +71,7 @@
                         >
                         <div class="valid-tick" *ngIf="passwordsEqual"><i class="material-icons">done</i></div>
                     </div>
-                    <div class="error-message" *ngIf="passwordsNotEqual" >
+                    <div class="error-message" *ngIf="passwordsNotEqual && password.valid" >
                         {{ "PASS_NOT_EQUAL" | i18n }}
                     </div>
                      <div [hidden]="password2.value ||  !finished" class="error-message">
