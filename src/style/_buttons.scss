@@ -10,3 +10,15 @@
 .btn-color{
     color: $main;
 }
+
+.btn-form{
+    padding: 13px 30px;
+    min-width: 200px;
+    box-shadow: none;
+    background:$lighter;
+    border: none;
+    margin: 20px auto 10px auto;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+}

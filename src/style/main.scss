@@ -1,8 +1,10 @@
+@import "reset";
 @import "colors";
 @import "mixins";
 @import "buttons";
 @import "fonts";
 
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,900&subset=latin-ext);
 
 /************************** config ********************************/
 html{
@@ -12,6 +14,7 @@ body {
     min-height: 100%;
     width: 100%;
     position: absolute;
+    font-family: 'Lato', sans-serif;
 }
 my-app{
     width: 100%;
@@ -20,6 +23,10 @@ my-app{
 }
 
 /************************* general **************************/
+*{
+    transition: 0.2s ease;
+}
+
 a {
     color: #ccc;
 }
@@ -34,6 +41,7 @@ main {
 
 h3{
     margin-bottom: 3rem;
+    font-size: 2.3rem;
 }
 
 canvas{
@@ -72,16 +80,40 @@ nav{
     position: relative;
 }
 
+.form-input{
+    padding: 14px;
+    margin: 8px;
+    background: #eee;
+    box-shadow: none;
+    width: 100%;
+    border: none;
+    &:focus{
+        //border: 1px solid $lighter;
+        transform: translate(-3px, -4px);
+        outline: none;
+        -webkit-box-shadow: 3px 3px 2px 0px rgba(0,0,0,0.3);
+        -moz-box-shadow: 3px 3px 2px 0px rgba(0,0,0,0.3);
+        box-shadow: 3px 3px 2px 0px rgba(0,0,0,0.3);
+        transition: 0.2s ease;
+        padding: 16px;
+    }
+}
+
+.input-wrap{
+    input:focus + .valid-tick{
+        transform: translate(-3px, -5px);
+    }
+}
 /*** validation ***/
 
 .finished .ng-invalid, .ng-dirty.ng-invalid{
-    border: 1px solid $red;
+     background: $light-red;
 }
 
 .error{
     color: $red;
     input{
-        border: 1px solid $red;
+        background: $light-red;
     }
 }
 
@@ -92,7 +124,7 @@ nav{
 .valid-tick{
     color:  $green;
     position: absolute;
-    bottom: 7px;
+    bottom: 17px;
     right: 10px;
 }
 
