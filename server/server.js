@@ -185,4 +185,4 @@ app.use('/api', router);
 // start the server ======
 // =======================
 app.listen(port);
-console.log('start serwera http://localhost:' + port);
+console.log('start serwera http://localhost:' + port, process.env);
