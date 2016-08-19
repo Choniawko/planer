@@ -9,20 +9,11 @@
     "clean-start": "npm run clean-install && npm start",
     "watch": "webpack --watch --progress --profile",
     "build": "rimraf dist && webpack --progress --profile --bail",
-    "server": "webpack-dev-server --inline --progress --port 8080",
+    "server": "webpack-dev-server --inline --progress --port 3000",
     "server:dev": "webpack-dev-server --inline --progress --profile --colors --watch --display-error-details --display-cached --content-base src/",
-    "webdriver-update": "webdriver-manager update",
-    "webdriver-start": "webdriver-manager start",
-    "lint": "tslint --force \"src/**/*.ts\"",
-    "e2e": "protractor",
-    "e2e-live": "protractor --elementExplorer",
-    "pretest": "npm run lint",
-    "test": "karma start",
-    "test-watch": "karma start --no-single-run --auto-watch",
-    "ci": "npm run e2e && npm run test",
     "docs": "typedoc --options typedoc.json src/app/app.component.ts",
-    "start": "npm run server:dev",
-    "postinstall": "npm run webdriver-update && typings install"
+    "start": "npm run server:dev"
+
   },
   "author": "",
   "license": "ISC",
@@ -95,7 +86,11 @@
     "webpack-dev-server": "^1.14.1"
   },
   "engines": {
+<<<<<<< HEAD
     "node": ">= 4.2.1",
     "npm": ">= 3"
+=======
+    "node": "4.3.0"
+>>>>>>> a3898509c135185794c4e554c2d21a3173da3dc4
   }
 }

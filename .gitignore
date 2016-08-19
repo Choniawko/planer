@@ -1,4 +1,4 @@
-node_modules
+
 cmder_mini
 # Logs
 logs
@@ -57,3 +57,6 @@ __build__/**
 # IDE #
 .idea/
 *.swp
+.DS_Store
+
+
