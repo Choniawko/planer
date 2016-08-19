@@ -4,11 +4,35 @@ var app         = express();
 var router      = express.Router();
 var User        = require('../../models/user'); 
 var bodyParser  = require('body-parser');
-var bcrypt      = require('bcrypt');
-var SALT_WORK_FACTOR = 10;
+// var bcrypt      = require('bcrypt');
+// var SALT_WORK_FACTOR = 10;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+// User.pre('save', function(next) {
+//     var user = this;
+
+//     if (!user.isModified('password')) return next();
+
+//     bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
+//         if (err) return next(err);
+
+//         bcrypt.hash(user.password, salt, function(err, hash) {
+//             if (err) return next(err);
+
+//             user.password = hash;
+//             next();
+//         });
+//     });
+// });
+
+// User.methods.comparePassword = function(candidatePassword, cb) {
+//     bcrypt.compare(candidatePassword, this.password, function(err, isMath) {
+//         if (err) return cb(err);
+//         cb(null, isMatch);
+//     })
+// }
 
 router.list = function(req, res) {
     User.find({}, function(err, users) {
