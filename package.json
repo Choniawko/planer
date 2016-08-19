@@ -4,8 +4,6 @@
   "description": "",
   "main": "/server/server.js",
   "scripts": {
-    "start": "npm run server:dev"
-
   },
   "author": "",
   "license": "ISC",
