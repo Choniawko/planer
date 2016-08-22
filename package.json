@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "/server/server.js",
-  "scripts": {
-  },
+  "scripts": {},
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -21,6 +20,7 @@
     "es6-shim": "^0.35.0",
     "express": "^4.14.0",
     "jsonwebtoken": "^7.1.7",
+    "mongodb": "^2.2.7",
     "mongoose": "^4.5.8",
     "morgan": "^1.7.0",
     "reflect-metadata": "0.1.3",
