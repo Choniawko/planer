@@ -1,5 +1,6 @@
 var express     = require('express');
 var app         = express();
+var expressWs = require('express-ws')(app);
 var bodyParser  = require('body-parser');
 var morgan      = require('morgan');
 var mongoose    = require('mongoose');
@@ -13,12 +14,28 @@ var User   = require('./models/user');
 
 var userRouter = require('./routes/user/user');
 var authRouter = require('./routes/auth/auth');
-  
+
+
 // =======================
 // konfiguracja  =========
 // =======================
 
 var port = process.env.PORT || 3000;
+
+// websocket
+
+app.ws('/dashboard', function(ws, req) {
+    ws.on('connect', function() {
+        console.log('socket', req.testing);
+    })
+  ws.on('message', function(msg) {
+    console.log(msg);
+  });
+  console.log('socket', req.testing);
+});
+
+
+
 
 mongoose.connect(config.database, function(err, db) {
     if (err) {
@@ -175,6 +192,8 @@ router.post('/user', userRouter.create);
  *
  */
 router.get('/user/:id', userRouter.userGetId);
+
+
 
 
 
