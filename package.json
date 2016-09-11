@@ -27,10 +27,13 @@
     "mongodb": "^2.2.7",
     "mongoose": "^4.5.8",
     "morgan": "^1.7.0",
+    "nodejs-websocket": "^1.7.0",
     "reflect-metadata": "0.1.3",
     "rxjs": "5.0.0-beta.6",
+    "socket.io": "^1.4.8",
     "trianglify": "^1.0.1",
     "websocket": "^1.0.23",
+    "ws": "^1.1.1",
     "zone.js": "0.6.12"
   },
   "devDependencies": {

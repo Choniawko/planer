@@ -5,7 +5,7 @@ import {Observer} from 'rxjs/Rx';
 
 import { WebSocketService } from '../common/services/websocket.service';
 
-const CHAT_URL = 'ws://localhost:8080/chat';
+const CHAT_URL = 'ws://localhost:3005';
 
 export interface Message {
     author: string;
@@ -19,7 +19,9 @@ export class HomeService {
     constructor(wsService: WebSocketService) {
         this.messages = <Subject<Message>>wsService
             .connect(CHAT_URL)
-            .map((response: MessageEvent) => {
+            .map((response: MessageEvent): Message => {
+                console.log('message', response);
+                
                 let data = JSON.parse(response.data);
 
                 return {

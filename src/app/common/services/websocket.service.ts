@@ -10,7 +10,11 @@ export class WebSocketService {
 
     public connect(url): Subject<MessageEvent> {
         if(!this.subject) {
-
+            console.log("url", url);
+            
+            this.subject = this.create(url);
+            console.log('this.subject', this.subject);
+            
         }
 
         return this.subject;
@@ -18,6 +22,7 @@ export class WebSocketService {
 
     public create(url): Subject<MessageEvent> {
         let ws = new WebSocket(url);
+        console.log("ws", ws);
 
         let observable = Observable.create((obs: Observer<MessageEvent>) => {
             ws.onmessage = obs.next.bind(obs);

@@ -6,6 +6,8 @@ var morgan      = require('morgan');
 var mongoose    = require('mongoose');
 var path        = require ('path');
 
+var ws = require('nodejs-websocket');
+var server = ws.createServer(socketConnection).listen(3005);
 
 var jwt    = require('jsonwebtoken'); 
 var config = require('./config/config'); 
@@ -74,16 +76,25 @@ app.get('/', function(req, res) {
 
 // websocket
 
-router.ws('/users', function(ws, req) {
-    ws.on('connect', function() {
-        console.log('socket', req.testing);
-    });
-    ws.on('message', function(msg) {
-        console.log(msg);
-    });
-    console.log('socket', req.testing);
-});
+function socketConnection(conn) {
+	console.log('New connection established.', new Date().toLocaleTimeString());
+	
+	conn.on('text', function (msg) {
+		// simple object transformation (= add current time)
+		var msgObj = JSON.parse(msg);
+		msgObj.newDate = new Date().toLocaleTimeString();
+		var newMsg = JSON.stringify(msgObj)
+		
+		// echo message including the new field to all connected clients
+		server.connections.forEach(function (conn) {
+			conn.sendText(newMsg);
+		})
+	})
+	conn.on('close', function (code, reason) {		
+		console.log('Connection closed.', new Date().toLocaleTimeString());
+	});
 
+}
 
  
 app.use('/api/apidoc', express.static('apidoc'));

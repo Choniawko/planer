@@ -9,6 +9,8 @@ import {HomeService} from './home';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { CreateMessage } from './home';
+import { Chat } from './home';
 import { ApiService } from './shared';
 import { routing } from './app.routing';
 
@@ -25,8 +27,10 @@ import { UserEdit } from './users/components/user-edit';
   declarations: [
     AppComponent,
     HomeComponent,
+    CreateMessage,
     UserList,
-    UserEdit
+    UserEdit,
+    Chat
   ],
   providers: [
     I18nService,
