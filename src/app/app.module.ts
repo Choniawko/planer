@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 import { I18nService, I18nPipe } from './common/services/I18nService';
 import {WebSocketService} from './common/services/websocket.service';
+import {HomeService} from './home';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -30,6 +31,7 @@ import { UserEdit } from './users/components/user-edit';
   providers: [
     I18nService,
     WebSocketService,
+    HomeService,
     ApiService
   ],
   bootstrap: [AppComponent]

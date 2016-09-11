@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {} from ''
 
 @Component({
   selector: 'my-home',
@@ -6,13 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  public messages;
   public errorMessage : string;
   constructor() {
-    // Do stuff
+
   }
 
   ngOnInit() {
-    console.log('Hello Home');
+
   }
  
 }

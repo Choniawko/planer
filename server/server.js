@@ -12,6 +12,8 @@ var config = require('./config/config');
 var User   = require('./models/user'); 
 
 
+var router = express.Router();
+
 var userRouter = require('./routes/user/user');
 var authRouter = require('./routes/auth/auth');
 
@@ -22,17 +24,7 @@ var authRouter = require('./routes/auth/auth');
 
 var port = process.env.PORT || 3000;
 
-// websocket
 
-app.ws('/dashboard', function(ws, req) {
-    ws.on('connect', function() {
-        console.log('socket', req.testing);
-    })
-  ws.on('message', function(msg) {
-    console.log(msg);
-  });
-  console.log('socket', req.testing);
-});
 
 
 
@@ -71,12 +63,25 @@ app.get('/', function(req, res) {
 });
 
 // API ROUTES -------------------
- var router = express.Router();
+
 
  app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
+});
+
+
+// websocket
+
+router.ws('/users', function(ws, req) {
+    ws.on('connect', function() {
+        console.log('socket', req.testing);
+    });
+    ws.on('message', function(msg) {
+        console.log(msg);
+    });
+    console.log('socket', req.testing);
 });
 
 
